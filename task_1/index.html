@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <style>
+        .modal {
+            width: 300px;
+            height: 250px;
+            background-color: cadetblue;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <input id="add-item-btn" type="button" value="+">
+</div>
+
+<script>
+    const container = document.getElementById('container');
+    const button = document.getElementById('add-item-btn');
+
+    button.addEventListener('click', function () {
+        // Создаем модальное окно
+        const modalDiv = document.createElement('div');
+        modalDiv.id = 'modal'
+        modalDiv.classList.add('modal');
+
+        // Добавляем в модальное окно текст и кнопку закрыть
+        const text = document.createElement('p');
+        text.innerText = 'У вас два варианта: \n 1) Нажмите кнопку закрыть \n 2) Дождитесь окончания 5 секунд';
+        const buttonClose = document.createElement('button');
+        buttonClose.innerText = 'Закрыть';
+        buttonClose.id = 'button_close';
+        modalDiv.appendChild(text);
+        modalDiv.append(buttonClose);
+        container.appendChild(modalDiv);
+
+        //Удаление сообщения при нажатии на кнопку закрыть
+        buttonClose.addEventListener('click', function () {
+            modalDiv.remove()
+        })
+    })
+
+</script>
+
+</body>
+</html>
