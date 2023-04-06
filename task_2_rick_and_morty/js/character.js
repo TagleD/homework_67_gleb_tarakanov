@@ -1,11 +1,15 @@
 let urlParams = new URLSearchParams(window.location.search);
-let id = urlParams.get('id');
+const id = urlParams.get('id');
 
 let xhr = new XMLHttpRequest();
 
 xhr.onload = function () {
     let character = JSON.parse(this.response);
     const characterRow = document.getElementById('character-row');
+
+    // Переименновываем title
+    const title = document.getElementsByTagName('title')[0]
+    title.innerText += character.name
 
     // Создаем текстовые поля внутри карточки
     const h5 = document.createElement('h5');
@@ -50,10 +54,7 @@ xhr.onload = function () {
     // Создаем контейнер для текстовых блоков и добавляем внего блоки
     const divTexts = document.createElement('div');
     divTexts.classList.add('card-character-text');
-    divTexts.append(
-        h5, status, statusText, species, speciesText, gender, genderText,
-        origin, originText, location, locationText, button
-    );
+    divTexts.append(h5, status, statusText, species, speciesText, gender, genderText, origin, originText, location, locationText, button);
 
     // Добавляем этот блок в разметку бутстрап и создаем еще один блок с картинкой
     const divTextsBootstrap = document.createElement('div');
@@ -74,6 +75,7 @@ xhr.onload = function () {
 
 xhr.open('GET', `https://rickandmortyapi.com/api/character/${id}`);
 xhr.send();
+
 
 
 

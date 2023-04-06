@@ -6,10 +6,6 @@
     max-width: 96%;
 }
 
-/*.main-part {*/
-/*    height: 40%;*/
-/*}*/
-
 .main-title {
     margin-top: -240px;
     color: rgb(32, 35, 41);
@@ -77,7 +73,7 @@
     margin-top: 20px;
 }
 
-.card-text{
+.card-text {
     margin-top: -3px;
 }
 

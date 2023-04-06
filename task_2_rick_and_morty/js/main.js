@@ -63,8 +63,6 @@ xhr.onload = function () {
 
         // Добавляем нашу карточку в нашу изначальную верстку
         rowCards.append(card);
-
-
     }
 }
 
