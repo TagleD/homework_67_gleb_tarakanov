@@ -12,7 +12,10 @@ xhr.onload = function () {
         const h5 = document.createElement('h5')
         h5.classList.add('card-title');
         h5.innerText = character.name;
-        // const a = document.createElement()
+        const a = document.createElement('a');
+        a.classList.add('hyperlink');
+        a.href = `character.html?id=${character.id}`;
+        a.append(h5);
         const status = document.createElement('p');
         status.classList.add("status");
         status.innerText = character.status + ' - ' + character.species;
@@ -32,7 +35,7 @@ xhr.onload = function () {
         // Создаем контейнер для текстовых блоков и добавляем внего блоки
         const divTexts = document.createElement('div');
         divTexts.classList.add('card-body');
-        divTexts.append(h5, status, lastLocationTitle, lastLocationText, firstLocationTitle, firstLocationText);
+        divTexts.append(a, status, lastLocationTitle, lastLocationText, firstLocationTitle, firstLocationText);
 
         // Добавляем этот блок в разметку бутстрап и создаем еще один блок с картинкой
         const divTextsBootstrap = document.createElement('div');
@@ -43,9 +46,12 @@ xhr.onload = function () {
         image.src = character.image;
         image.classList.add('rounded-start', 'card-image');
         image.alt = character.name
+        const imageHyperlink = document.createElement('a');
+        imageHyperlink.href = `character.html?id=${character.id}`;
+        imageHyperlink.append(image);
         const divImageBootstrap = document.createElement('div');
         divImageBootstrap.classList.add('col-md-5');
-        divImageBootstrap.append(image);
+        divImageBootstrap.append(imageHyperlink);
 
         // Создаем карточку, ряд и доавляем в него блоки
         const row = document.createElement('div');
@@ -57,6 +63,8 @@ xhr.onload = function () {
 
         // Добавляем нашу карточку в нашу изначальную верстку
         rowCards.append(card);
+
+
     }
 }
 
