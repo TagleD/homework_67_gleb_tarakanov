@@ -15,7 +15,6 @@ xhr.onload = function () {
     const h5 = document.createElement('h5');
     h5.classList.add('card-title');
     h5.innerText = character.name;
-    console.log(h5)
     const status = document.createElement('h6');
     status.classList.add("card-title-mini");
     status.innerText = 'Status:';
